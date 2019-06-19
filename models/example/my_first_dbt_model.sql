@@ -7,4 +7,4 @@
 {{ config(materialized='view') }}
 
 
-nope
+select 1 as id
