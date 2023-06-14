@@ -1,0 +1,38 @@
+---
+sync:postgres-all-users-salesforce-account:
+  paused: false
+  behavior:
+    operation: upsert
+  triggers:
+    schedule:
+      frequency: never
+  destination:
+    connection_identifier: destination:salesforce
+    object_identifier: Account
+  source:
+    type: entity
+    connection_identifier: data_warehouse:postgres
+    object_identifier: entity:all-users
+  mappings:
+  - from:
+      type: column
+      data:
+        column_name: email
+    to:
+      field_name: Company_ID__c
+    is_primary_identifier: true
+    preserve_values: false
+  - from:
+      type: column
+      data:
+        column_name: first_name
+    to:
+      field_name: Name
+    preserve_values: false
+  operational_settings:
+    alerts:
+      failed_run_notifications:
+        enabled: true
+      failed_record_notifications:
+        enabled: true
+        threshold_percent: 75

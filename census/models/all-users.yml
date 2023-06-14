@@ -1,0 +1,6 @@
+---
+model:all-users:
+  name: All Users
+  query: SELECT * FROM users
+  description:
+  connection: data_warehouse:postgres
