@@ -43,6 +43,6 @@ models:
       example:
           materialized: view
 
-dbt-cloud:
-  project-id: fake-project-id
+# dbt-cloud:
+#   project-id: fake-project-id
     
